@@ -122,49 +122,22 @@ flowchart TB
 # Folder structure
 
 ```text
-├── docs/                      # Documentation, diagrams, and specs
-├── src/                       # Source code
-│   ├── agent/                 # Agent definitions and behaviors (LangChain)
-│   │   ├── __init__.py
-│   │   ├── claimer.py         # Bug discovery and claim creation logic
-│   │   ├── challenger.py      # Claim evaluation and dispute logic
-│   │   ├── voter.py           # Adjudication and Schelling Point logic
-│   │   ├── tools/             # Agent tools (e.g., sandbox runner)
-│   │   │   └── sandbox_tool.py
-│   │   └── prompts/           # Separated system prompts
-│   │
-│   ├── organization/          # State machine and flow (LangGraph)
-│   │   ├── __init__.py
-│   │   ├── graph.py           # Main StateGraph definition
-│   │   ├── nodes.py           # Graph node implementations
-│   │   ├── edges.py           # Conditional routing logic
-│   │   └── state.py           # TypedDict/Pydantic state definitions
-│   │
-│   ├── policy/                # Cryptoeconomic rules and math
-│   │   ├── __init__.py
-│   │   ├── engine.py          # Reputation calculation and slashing
-│   │   ├── validator.py       # Claim and bond validation
-│   │   └── enforcer.py        # Action execution based on verdicts
-│   │
-│   ├── infrastructure/        # External service integrations
-│   │   ├── __init__.py
-│   │   ├── blockchain/        # Ledger client interactions
-│   │   ├── flower_fl/         # Federated Learning (FL) clients/servers
-│   │   └── storage.py         # IPFS interactions for evidence
-│   │
-│   ├── utils/                 # Shared utilities
-│   │   └── config.py
-│   │
-│   └── main.py                # System entry point
-│
-├── tests/                     # Unit and integration tests
-│   ├── test_agents/
-│   ├── test_graph/
-│   └── test_policy/
-│
-├── default.nix                # NixOS environment configuration
-├── docker-compose.yml         # Container definitions (Flower, IPFS, Ledger)
-├── pyproject.toml             # Python project metadata
-├── requirements.txt           # Generated dependencies
-└── README.md                  # Project overview
+.
+├── docs/                             # Documentation, diagrams, and specifications
+├── src/
+│   ├── core/                         # Core domain logic
+│   │   ├── agent/                    # LangChain definitions (Claimer, Challenger, Voter)
+│   │   ├── organization/             # LangGraph state machine and execution flow
+│   │   └── policy/                   # Mathematical rules, scoring, and validators
+│   ├── infrastructure/               # External service implementations
+│   │   ├── blockchain/               # Ledger client interactions
+│   │   ├── flower/                   # Federated Learning integration
+│   │   └── storage/                  # IPFS/Evidence storage handling
+│   └── utils/                        # Shared configurations and helper functions
+├── tests/                            # Unit and integration test suites
+├── default.nix                       # NixOS environment definition
+├── docker-compose.yml                # Container orchestration
+├── pyproject.toml                    # Python build system and dependencies
+├── requirements.txt                  # Frozen dependency list
+└── README.md                         # Project overview
 ```
